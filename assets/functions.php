@@ -283,6 +283,89 @@ add_shortcode( 'avatar_shortcode', 'slider_avatar' );
 
 /*get avatar end*/
 
+/* Logged In */
+function check_user_li ($params, $content = null){
+    //check tha the user is logged in
+    if ( is_user_logged_in() ){
+
+        //user is logged in so show the content
+        return '' . do_shortcode($content) . '' ;
+
+    }
+
+    else{
+
+        //user is not logged in so hide the content
+        return '' ;
+
+    }
+
+}
+
+//add a shortcode which calls the above function
+add_shortcode('boot_logged_in', 'check_user_li' );
+
+/* Logged Out */
+function check_user_lo ($params, $content = null){
+    //check tha the user is logged in
+    if ( is_user_logged_in() ){
+
+        //user is logged in so show the content
+        return '' ;
+
+    }
+
+    else{
+
+        //user is not logged in so hide the content
+        return '' . do_shortcode($content) . '' ;
+
+    }
+
+}
+
+//add a shortcode which calls the above function
+add_shortcode('boot_logged_out', 'check_user_lo' );
+
+
+function wpfa_login_form( $args ) {
+
+    $defaults = shortcode_atts( array(
+        'echo'              => false,
+        'redirect'          => site_url( '/wp-admin/' ),
+        'form_id'           => 'loginform',
+        'label_username'    => __( 'Username', 'wpfa-textdomain' ),
+        'label_password'    => __( 'Password', 'wpfa-textdomain' ),
+        'label_remember'    => __( 'Remember Me', 'wpfa-textdomain' ),
+        'label_log_in'      => __( 'Log In', 'wpfa-textdomain' ),
+        'id_username'       => 'user_login',
+        'id_password'       => 'user_pass',
+        'id_remember'       => 'rememberme',
+        'id_submit'         => 'wp-submit',
+        'remember'          => true,
+        'value_username'    => NULL,
+        'value_remember'    => false
+    ), $args, 'wpfa_login' );
+
+    $login_args = wp_parse_args( $args, $defaults );
+
+    return wp_login_form( $login_args );
+
+} /** End function - WPFA login form */
+add_shortcode( 'boot_login_form', 'wpfa_login_form' );
+
+
+//Logout Shortcode
+function logout_func ($atts, $content = null) {
+    extract(shortcode_atts(array(
+        'linktext' => 'Log Out',
+        'class' => '',
+    ), $atts));
+    $class = $atts['class'];
+    $logoutlink = wp_logout_url( home_url() );
+    return '<a class="'.$class.'" href="' . $logoutlink . '" title="Logout">'. $linktext .'</a>';
+}
+add_shortcode( 'boot_logoutbtn', 'logout_func' );
 
 
 
@@ -392,7 +475,7 @@ window.newsletter_check = function (f) {
 //]]>
 </script>
 
-<form method="post" action="http://rainbowmekids.com/wp-content/plugins/newsletter/do/subscribe.php" onsubmit="return newsletter_check(this)">
+<form method="post" action="//rainbowmekids.com/wp-content/plugins/newsletter/do/subscribe.php" onsubmit="return newsletter_check(this)">
 
 	<div class="newsletter-inputgroup">
 

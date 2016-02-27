@@ -72,6 +72,36 @@
                     onclick: function() {
                         editor.insertContent('[custom_div class=""][/custom_div]');
                     }
+                },
+
+                {
+                    text: 'Login/Logout',
+                    menu: [
+                        {
+                            text: 'Login View',
+                            onclick: function() {
+                                editor.insertContent('[boot_logged_in]This is what user sees when logged in[/boot_logged_in]');
+                            }
+                        },
+                        {
+                            text: 'Log Out View',
+                            onclick: function() {
+                                editor.insertContent('[boot_logged_out]This is what user sees when logged out[/boot_logged_out]');
+                            }
+                        },
+                        {
+                            text: 'Login Form',
+                            onclick: function() {
+                                editor.insertContent('[boot_login_form label_log_in="Login"]');
+                            }
+                        },
+                        {
+                            text: 'Log Out Link',
+                            onclick: function() {
+                                editor.insertContent('[boot_logoutbtn linktext="Log Out" class="btn btn-primary"]');
+                            }
+                        }
+                    ]
                 }
 				
 				
