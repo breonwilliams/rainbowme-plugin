@@ -164,6 +164,7 @@ add_shortcode('background_vid', 'background_vid');
 /* Modal */
 
 function boot_modal( $atts, $content = null ) {
+    wp_enqueue_script( 'modal' );
 
     $atts = shortcode_atts(
         array(

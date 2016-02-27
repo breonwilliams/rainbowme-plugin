@@ -43,6 +43,7 @@ function wpb_adding_scripts() {
     wp_register_script( 'popupvid-js', $everypraise_shortcodes_directory.'assets/js/magnificPopup.js', 'jquery','1.0',true);
     wp_register_script( 'imageScroll', $everypraise_shortcodes_directory.'assets/js/jquery.imageScroll.min.js', 'jquery','1.0',true);
     wp_register_script( 'parallax', $everypraise_shortcodes_directory.'assets/js/parallax.js', 'jquery','1.0',true);
+    wp_register_script( 'modal', $everypraise_shortcodes_directory.'assets/js/modal.js', 'jquery','1.0',true);
 
 
 }
