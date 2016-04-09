@@ -61,11 +61,23 @@
                             }
                 },
 
+
                 {
                     text: 'Recent Posts',
-                    onclick: function() {
+                    menu: [
+                        {
+                            text: 'Recent Posts List',
+                            onclick: function() {
+                                editor.insertContent('[list_recent_posts category="" posts="2" ptype=""]');
+                            }
+                        },
+                        {
+                            text: 'Recent Video Posts',
+                            onclick: function() {
                                 editor.insertContent('[recent_videos posts="8" ptype="videos"]');
                             }
+                        },
+                    ]
                 },
                 {
                     text: 'Custom Div',
