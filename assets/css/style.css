@@ -131,6 +131,7 @@ img {
 
 .media-listitem {
     padding: 10px 0;
+    min-height: 95px;
 }
 
 .marginlft-90 {
