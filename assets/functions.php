@@ -401,7 +401,7 @@ function list_recent_posts( $atts ) {
                         <div class="thumbnail">
                             <?php
                             if ( has_post_thumbnail() ) {
-                                the_post_thumbnail('post_thumbnail');
+                                the_post_thumbnail('small_thumb');
                             }
                             ?>
                         </div>

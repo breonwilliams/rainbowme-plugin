@@ -72,6 +72,15 @@ register_taxonomy("gamestype", array("games"), array("hierarchical" => true,"lab
 }
 
 
+/*thumbnails*/
+
+if ( function_exists( 'add_theme_support' ) ) {
+    add_image_size( 'small_thumb', 64, 64, true ); // Posts thumnail
+
+}
+
+
+
 /*custom post type start*/
 
 
