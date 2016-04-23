@@ -57,7 +57,7 @@ add_action( 'init', 'create_taxonomies', 0 );
 
 function create_taxonomies() {
 
-register_taxonomy("vtype", array("videos"), array("hierarchical" => true,"label" => "Ethnicity", "singular_label" => "Ethnicities"));
+register_taxonomy("vtype", array("videos"), array("hierarchical" => true,"label" => "Main Character", "singular_label" => "Main Characters"));
 
 register_taxonomy("vagetype", array("videos"), array("hierarchical" => true,"label" => "Age Range", "singular_label" => "Age Ranges"));
 
@@ -97,11 +97,11 @@ register_post_type('videos', array(
 'show_in_menu' => true,
 'capability_type' => 'post',
 'map_meta_cap' => true,
-'hierarchical' => false,
+'hierarchical' => true,
 'taxonomies' => array('category','post_tag'),
 'rewrite' => array('slug' => 'videos', 'with_front' => true),
 'query_var' => true,
-'supports' => array('title','editor','excerpt','trackbacks','custom-fields','comments','revisions','thumbnail','author','post-formats'),
+'supports' => array('title','editor','excerpt','trackbacks','custom-fields','comments','revisions','thumbnail','author','post-formats','page-attributes'),
 'labels' => array (
   'name' => 'Videos',
   'singular_name' => 'Video',
