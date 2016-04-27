@@ -562,8 +562,12 @@ function carousel_recent_posts( $atts ) {
                 <div class="thumbnail thumb-carousel">
                     <?php if(has_post_thumbnail()): ?>
                         <a class="thumbnail-link" href="<?php the_permalink(); ?>">
-                            <div class="thumbnail-img">
-                                <?php if ( has_post_thumbnail() ) { the_post_thumbnail('post_thumbnail_lg'); } ?>
+
+                        <?php global $post; ?>
+<?php
+$src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+?>
+                            <div class="thumbnail-img" style="background-image: url(<?php echo $src[0]; ?> ) !important;">
                             </div>
                         </a>
 
