@@ -118,6 +118,12 @@
                             onclick: function() {
                                 editor.insertContent('[boot_logoutbtn linktext="Log Out" class="btn btn-primary"]');
                             }
+                        },
+                        {
+                            text: 'Facebook Login',
+                            onclick: function() {
+                                editor.insertContent('[boot_fblog][/boot_fblog]');
+                            }
                         }
                     ]
                 }

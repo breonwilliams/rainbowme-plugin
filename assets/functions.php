@@ -378,6 +378,13 @@ function logout_func ($atts, $content = null) {
 }
 add_shortcode( 'boot_logoutbtn', 'logout_func' );
 
+//Facebook Login
+function fb_logg ($atts, $content = null) {
+
+    return '' .do_action('rm_fb_connect'). '';
+}
+add_shortcode( 'boot_fblog', 'fb_logg' );
+
 
 /*recent posts list start*/
 add_shortcode( 'list_recent_posts', 'list_recent_posts' );
