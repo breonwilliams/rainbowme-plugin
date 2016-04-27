@@ -380,8 +380,10 @@ add_shortcode( 'boot_logoutbtn', 'logout_func' );
 
 //Facebook Login
 function fb_logg ($atts, $content = null) {
-
-    return '' .do_action('rm_fb_connect'). '';
+    ob_start();
+        echo '' .do_action('rm_fb_connect'). '';
+    $myvariable = ob_get_clean();
+    return $myvariable;
 }
 add_shortcode( 'boot_fblog', 'fb_logg' );
 
