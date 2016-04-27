@@ -28,10 +28,6 @@ $('.responsive').slick({
         slidesToShow: 1,
         slidesToScroll: 1
       }
-    },
-    {
-      breakpoint: 400,
-      settings: "unslick"
     }
     // You can unslick at a given breakpoint now by adding:
     // settings: "unslick"

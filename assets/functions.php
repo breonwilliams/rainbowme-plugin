@@ -133,22 +133,26 @@ function background_vid( $atts, $content = null ) {
             'poster' => '',
             'mp4' => '',
             'padding' => '',
+            'overlay' => '',
         ), $atts, 'background_vid' );
 
 
     $poster = $atts['poster'];
     $mp4 = $atts['mp4'];
     $padding = $atts['padding'];
+    $overlay = $atts['overlay'];
     return '
 
 <div class="video-hero jquery-background-video-wrapper demo-video-wrapper">
         <video class="jquery-background-video" autoplay muted loop poster="'.$poster.'">
             <source src="'.$mp4.'" type="video/mp4">
         </video>
-        <div class="video-overlay"></div>
+        <div class="video-overlay" style="background:'.$overlay.';"></div>
         <div class="'.$padding.'">
             <div class="video-hero--content">
-                ' . do_shortcode($content) . '
+                <div class="container">
+                    ' . do_shortcode($content) . '
+                </div>
             </div>
         </div>
     </div>'
@@ -515,6 +519,70 @@ function recent_videos( $atts ) {
 
 
 /*recent videos end*/
+
+/*recent posts carousel start*/
+add_shortcode( 'carousel_recent_posts', 'carousel_recent_posts' );
+function carousel_recent_posts( $atts ) {
+    wp_enqueue_script( 'slick-resp' );
+    wp_enqueue_script( 'slickmin-js' );
+
+    ob_start();
+    // define attributes and their defaults
+    extract( shortcode_atts( array (
+        'posts' => 4,
+        'category' => '',
+        'ptype' => '',
+        'class' => '',
+    ), $atts ) );
+
+    $class = $atts['class'];
+
+    // define query parameters based on attributes
+    $options = array(
+        'posts_per_page' => $posts,
+        'post_type' => $ptype,
+        'category_name' => $category
+    );
+    $query = new WP_Query( $options );
+    // run the loop based on the query
+    if ( $query->have_posts() ) { ?>
+
+        <?php echo ' <div class="'.$class.'"> '; ?>
+
+
+            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+
+            <div>
+                <div class="thumbnail thumb-carousel">
+                    <?php if(has_post_thumbnail()): ?>
+                        <a class="thumbnail-link" href="<?php the_permalink(); ?>">
+                            <div class="thumbnail-img">
+                                <?php if ( has_post_thumbnail() ) { the_post_thumbnail('post_thumbnail_lg'); } ?>
+                            </div>
+                        </a>
+
+                    <?php else: ?>
+
+                    <?php endif; ?>
+
+                    <div class="caption caption-fixedh">
+                        <h3 class="thumb-heading"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf(__('%s', 'heels'), the_title_attribute('echo=0')); ?>"><?php the_title(); ?></a></h3>
+                        <p><?php the_excerpt(); ?></p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <?php endwhile;
+            wp_reset_postdata(); ?>
+
+
+        </div>
+        <?php $myvariable = ob_get_clean();
+        return $myvariable;
+    }
+}
+
+/*recent posts carousel end*/
 
 /*Newsletter*/
 

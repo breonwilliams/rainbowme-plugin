@@ -15,7 +15,7 @@
                         {
                             text: 'Background Video Section',
                             onclick: function() {
-                                editor.insertContent('[background_vid poster="" mp4="" padding=""][/background_vid]');
+                                editor.insertContent('[background_vid poster="" mp4="" padding="pad-100" overlay=""][/background_vid]');
                             }
                         },
                         {
@@ -75,6 +75,12 @@
                             text: 'Recent Video Posts',
                             onclick: function() {
                                 editor.insertContent('[recent_videos posts="8" ptype="videos"]');
+                            }
+                        },
+                        {
+                            text: 'Recent Posts Carousel',
+                            onclick: function() {
+                                editor.insertContent('[carousel_recent_posts class="slick-1" category="" posts="2" ptype=""]');
                             }
                         },
                     ]
