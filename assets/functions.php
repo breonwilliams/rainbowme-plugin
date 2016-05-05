@@ -1,6 +1,4 @@
 <?php
-
-
 function clean_shortcodes($content) {   
     $array = array (
         '<p>[' => '[', 
@@ -685,6 +683,3 @@ function rm_container( $atts, $content = null ) {
 add_shortcode('rm_container', 'rm_container');
 
 /*container end*/
-
-
-
