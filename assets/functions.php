@@ -262,7 +262,7 @@ function slider_avatar() {
 
     <div class="col-md-6 col-sm-6 col-xs-6">
 
-                    <p class="lead">Hello <?php echo bp_core_get_userlink( bp_loggedin_user_id() ); ?>, we have some new episodes! Make sure you go to your profile and <a href="<?php echo bp_loggedin_user_domain() ?>profile/change-avatar/">create your avatar!</a></p>
+                    <p class="lead">Hello <?php echo bp_core_get_userlink( bp_loggedin_user_id() ); ?>, we have some new episodes! Make sure you go to your profile and <a href="<?php echo bp_loggedin_user_domain() ?>profile/change-avatar/">create your avatar!</a> Click <a href="<?php echo esc_url( home_url( '' ) ); ?>/shows">here</a> to watch episodes.</p>
 
     </div>
 </div>
