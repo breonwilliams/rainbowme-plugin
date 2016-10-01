@@ -268,10 +268,10 @@ function popup_listvid( $atts, $content = null ) {
         <li>
             <a href="'.$url.'" class="popup-video">
                 <div class="row">
-                    <div class="col-sm-2 col-xs-3">
+                    <div class="col-xs-4">
                         <img src="'.$imgurl.'" alt="'.$title.'">
                     </div>
-                    <div class="col-sm-10 col-xs-9">
+                    <div class="col-xs-8">
                     <h3>'.$title.'</h3>
                     ' . do_shortcode($content) . '
                     </div>
