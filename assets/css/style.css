@@ -188,3 +188,23 @@ img {
     height: 200px;
     border-radius: 5px 5px 0 0;
 }
+
+.popup-listwrap {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.popup-listwrap li {
+     padding: 25px 25px 10px;
+     border-bottom: solid 1px rgba(0,0,0,.1)
+ }
+
+.popup-listwrap li {
+    padding: 25px 25px 10px;
+    border-bottom: solid 1px rgba(0,0,0,.1)
+}
+
+.popup-listwrap li:last-child {
+    border-bottom: none;
+}

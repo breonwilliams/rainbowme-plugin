@@ -246,6 +246,64 @@ function popup_video( $atts, $content = null ) {
 add_shortcode('popup_video', 'popup_video');
 
 
+/* Popup Video List Item */
+
+function popup_listvid( $atts, $content = null ) {
+    wp_enqueue_script( 'lity-css' );
+    wp_enqueue_script( 'lity-js' );
+
+    $atts = shortcode_atts(
+        array(
+            'imgurl' => '',
+            'url' => '',
+            'title' => '',
+        ), $atts, 'popup_listvid' );
+
+    $imgurl = $atts['imgurl'];
+    $url = $atts['url'];
+    $title = $atts['title'];
+
+    return '
+
+        <li>
+            <a href="'.$url.'" data-lity>
+                <div class="row">
+                    <div class="col-sm-2 col-xs-3">
+                        <img src="'.$imgurl.'" alt="'.$title.'">
+                    </div>
+                    <div class="col-sm-10 col-xs-9">
+                    <h3>'.$title.'</h3>
+                    ' . do_shortcode($content) . '
+                    </div>
+                </div>
+            </a>
+        </li>
+        '
+
+        ;
+
+}
+
+add_shortcode('popup_listvid', 'popup_listvid');
+
+/* Popup video list wrap */
+
+function popup_listwrap( $atts, $content = null ) {
+
+    $atts = shortcode_atts(
+        array(
+            'class' => '',
+        ), $atts, 'custom_div' );
+
+    $class = $atts['class'];
+
+    return '<ul class="popup-listwrap '.$class.'" >' . do_shortcode($content) . '</ul>';
+
+}
+
+add_shortcode('popup_listwrap', 'popup_listwrap');
+
+
 
 
 /*get avatar*/
