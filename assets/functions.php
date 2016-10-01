@@ -222,8 +222,9 @@ add_shortcode('boot_modal', 'boot_modal');
 /* Popup Video */
 
 function popup_video( $atts, $content = null ) {
-    wp_enqueue_script( 'lity-css' );
-    wp_enqueue_script( 'lity-js' );
+    wp_enqueue_script( 'magnific-css' );
+    wp_enqueue_script( 'magnific-js' );
+    wp_enqueue_script( 'magnific' );
 
     $atts = shortcode_atts(
         array(
@@ -236,7 +237,7 @@ function popup_video( $atts, $content = null ) {
 
     return '
 
-        <a href="'.$url.'" class="'.$class.'" data-lity>' . do_shortcode($content) . '</a>
+        <a href="'.$url.'" class="'.$class.' popup-video">' . do_shortcode($content) . '</a>
         '
 
         ;
@@ -249,8 +250,9 @@ add_shortcode('popup_video', 'popup_video');
 /* Popup Video List Item */
 
 function popup_listvid( $atts, $content = null ) {
-    wp_enqueue_script( 'lity-css' );
-    wp_enqueue_script( 'lity-js' );
+    wp_enqueue_script( 'magnific-css' );
+    wp_enqueue_script( 'magnific-js' );
+    wp_enqueue_script( 'magnific' );
 
     $atts = shortcode_atts(
         array(
@@ -266,7 +268,7 @@ function popup_listvid( $atts, $content = null ) {
     return '
 
         <li>
-            <a href="'.$url.'" data-lity>
+            <a href="'.$url.' popup-video">
                 <div class="row">
                     <div class="col-sm-2 col-xs-3">
                         <img src="'.$imgurl.'" alt="'.$title.'">

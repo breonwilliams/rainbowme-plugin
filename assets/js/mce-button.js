@@ -55,6 +55,24 @@
                 },
 
                 {
+                    text: 'Popup Video List',
+                    menu: [
+                        {
+                            text: 'List Wrap',
+                            onclick: function() {
+                                editor.insertContent('[popup_listwrap class=""][/popup_listwrap]');
+                            }
+                        },
+                        {
+                            text: 'Popup List Item',
+                            onclick: function() {
+                                editor.insertContent('[popup_listvid class="" title="" imgurl="" url=""][/popup_listvid]');
+                            }
+                        }
+                    ]
+                },
+
+                {
                     text: 'Avatar',
                     onclick: function() {
                                 editor.insertContent('[avatar_shortcode]');

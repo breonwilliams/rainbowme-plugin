@@ -25,7 +25,7 @@ function everypraise_shortcodes_add_scripts() {
       wp_enqueue_style('slick-theme-css', $everypraise_shortcodes_directory.'assets/css/slick-theme.css');
       wp_enqueue_style('slick-css', $everypraise_shortcodes_directory.'assets/css/slick.css');
       wp_enqueue_style('bg-theme', $everypraise_shortcodes_directory.'assets/css/background-vid.css');
-      wp_enqueue_style('lity-css', $everypraise_shortcodes_directory.'assets/css/lity.css');
+      wp_enqueue_style('magnific-css', $everypraise_shortcodes_directory.'assets/css/magnific-popup.css');
       wp_enqueue_style('style-theme', $everypraise_shortcodes_directory.'assets/css/style.css');
 
   }}
@@ -40,6 +40,8 @@ function wpb_adding_scripts() {
     wp_register_script( 'bgvid', $everypraise_shortcodes_directory.'assets/js/background-video.js', 'jquery','1.0',true);
     wp_register_script( 'bgvid-js', $everypraise_shortcodes_directory.'assets/js/jquery.background-video.js', 'jquery','1.0',true);
     wp_register_script( 'lity-js', $everypraise_shortcodes_directory.'assets/js/lity.js', 'jquery','1.0',true);
+    wp_register_script( 'magnific-js', $everypraise_shortcodes_directory.'assets/js/jquery.magnific-popup.js', 'jquery','1.0',true);
+    wp_register_script( 'magnific', $everypraise_shortcodes_directory.'assets/js/magnificPopup.js', 'jquery','1.0',true);
     wp_register_script( 'imageScroll', $everypraise_shortcodes_directory.'assets/js/jquery.imageScroll.min.js', 'jquery','1.0',true);
     wp_register_script( 'parallax', $everypraise_shortcodes_directory.'assets/js/parallax.js', 'jquery','1.0',true);
     wp_register_script( 'modal', $everypraise_shortcodes_directory.'assets/js/modal.js', 'jquery','1.0',true);
