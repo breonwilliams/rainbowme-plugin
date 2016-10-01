@@ -268,7 +268,7 @@ function popup_listvid( $atts, $content = null ) {
     return '
 
         <li>
-            <a href="'.$url.' popup-video">
+            <a href="'.$url.'" class="popup-video">
                 <div class="row">
                     <div class="col-sm-2 col-xs-3">
                         <img src="'.$imgurl.'" alt="'.$title.'">
