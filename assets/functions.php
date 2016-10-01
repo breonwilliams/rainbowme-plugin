@@ -222,7 +222,6 @@ add_shortcode('boot_modal', 'boot_modal');
 /* Popup Video */
 
 function popup_video( $atts, $content = null ) {
-    wp_enqueue_script( 'magnific-css' );
     wp_enqueue_script( 'magnific-js' );
     wp_enqueue_script( 'magnific' );
 
@@ -250,7 +249,6 @@ add_shortcode('popup_video', 'popup_video');
 /* Popup Video List Item */
 
 function popup_listvid( $atts, $content = null ) {
-    wp_enqueue_script( 'magnific-css' );
     wp_enqueue_script( 'magnific-js' );
     wp_enqueue_script( 'magnific' );
 
