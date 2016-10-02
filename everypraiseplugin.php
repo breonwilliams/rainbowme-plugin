@@ -25,7 +25,7 @@ function everypraise_shortcodes_add_scripts() {
       wp_enqueue_style('slick-theme-css', $everypraise_shortcodes_directory.'assets/css/slick-theme.css');
       wp_enqueue_style('slick-css', $everypraise_shortcodes_directory.'assets/css/slick.css');
       wp_enqueue_style('bg-theme', $everypraise_shortcodes_directory.'assets/css/background-vid.css');
-      wp_enqueue_style('magnific-css', $everypraise_shortcodes_directory.'assets/css/magnific-popup.css');
+      wp_enqueue_style('lity-css', $everypraise_shortcodes_directory.'assets/css/lity.css');
       wp_enqueue_style('style-theme', $everypraise_shortcodes_directory.'assets/css/style.css');
 
   }}
