@@ -49,28 +49,17 @@ function wpb_adding_scripts() {
 
 }
 
-add_action( 'wp_enqueue_scripts', 'wpb_adding_scripts' ); 
+add_action( 'wp_enqueue_scripts', 'wpb_adding_scripts' );
 
 
-
-
-add_action( 'init', 'create_taxonomies', 0 );
-
-function create_taxonomies() {
-
-register_taxonomy("vtype", array("videos"), array("hierarchical" => true,"label" => "Main Character", "singular_label" => "Main Characters"));
-
-register_taxonomy("vagetype", array("videos"), array("hierarchical" => true,"label" => "Age Range", "singular_label" => "Age Ranges"));
-
-register_taxonomy("vprogramtype", array("videos"), array("hierarchical" => true,"label" => "Type of Program", "singular_label" => "Type of Programs"));
-
-register_taxonomy("v_ori_syn_type", array("videos"), array("hierarchical" => true,"label" => "Episode", "singular_label" => "Episodes"));
-
-register_taxonomy("bookstype", array("books"), array("hierarchical" => true,"label" => "Book Categories", "singular_label" => "Book Category"));
-
-register_taxonomy("gamestype", array("games"), array("hierarchical" => true,"label" => "Game Categories", "singular_label" => "Game Category"));
-
+function build_js(){
+    if( is_single() && get_post_type()=='videos' ){
+        wp_enqueue_script( 'lity-js' );
+    }
 }
+add_action('wp_enqueue_scripts', 'build_js');
+
+
 
 
 /*thumbnails*/
@@ -85,125 +74,7 @@ if ( function_exists( 'add_theme_support' ) ) {
 /*custom post type start*/
 
 
-/*videos post type start*/
 
-add_action('init', 'cptui_register_my_cpt_videos');
-function cptui_register_my_cpt_videos() {
-register_post_type('videos', array(
-'label' => 'Videos',
-'description' => '',
-'public' => true,
-'has_archive' => true,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => true,
-'taxonomies' => array('category','post_tag'),
-'rewrite' => array('slug' => 'videos', 'with_front' => true),
-'query_var' => true,
-'supports' => array('title','editor','excerpt','trackbacks','custom-fields','comments','revisions','thumbnail','author','post-formats','page-attributes'),
-'labels' => array (
-  'name' => 'Videos',
-  'singular_name' => 'Video',
-  'menu_name' => 'Videos',
-  'add_new' => 'Add Video',
-  'add_new_item' => 'Add New Video',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit Video',
-  'new_item' => 'New Video',
-  'view' => 'View Video',
-  'view_item' => 'View Video',
-  'search_items' => 'Search Video',
-  'not_found' => 'No Videos Found',
-  'not_found_in_trash' => 'No Videos Found in Trash',
-  'parent' => 'Parent Video',
-)
-) ); }
-
-/*videos post type end*/
-
-
-
-/*book post type start*/
-
-add_action('init', 'cptui_register_my_cpt_books');
-function cptui_register_my_cpt_books() {
-register_post_type('books', array(
-'label' => 'Books',
-'description' => '',
-'public' => true,
-'has_archive' => true,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => false,
-'rewrite' => array('slug' => 'books', 'with_front' => true),
-'query_var' => true,
-'supports' => array('title','editor','excerpt','trackbacks','custom-fields','revisions','thumbnail','author','page-attributes','post-formats'),
-'labels' => array (
-  'name' => 'Books',
-  'singular_name' => 'Book',
-  'menu_name' => 'Books',
-  'add_new' => 'Add Books',
-  'add_new_item' => 'Add New Book',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit Book',
-  'new_item' => 'New Book',
-  'view' => 'View Book',
-  'view_item' => 'View Book',
-  'search_items' => 'Search Books',
-  'not_found' => 'No Books Found',
-  'not_found_in_trash' => 'No Books Found in Trash',
-  'parent' => 'Parent Book',
-)
-) ); }
-
-/*book post type end*/
-
-
-
-/*game post type start*/
-
-add_action('init', 'cptui_register_my_cpt_games');
-function cptui_register_my_cpt_games() {
-register_post_type('games', array(
-'label' => 'Games',
-'description' => '',
-'public' => true,
-'has_archive' => true,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => false,
-'rewrite' => array('slug' => 'games', 'with_front' => true),
-'query_var' => true,
-'supports' => array('title','editor','excerpt','trackbacks','custom-fields','revisions','thumbnail','author','page-attributes','post-formats'),
-'labels' => array (
-  'name' => 'Games',
-  'singular_name' => 'Game',
-  'menu_name' => 'Games',
-  'add_new' => 'Add Games',
-  'add_new_item' => 'Add New Game',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit Game',
-  'new_item' => 'New Game',
-  'view' => 'View Game',
-  'view_item' => 'View Game',
-  'search_items' => 'Search Games',
-  'not_found' => 'No Games Found',
-  'not_found_in_trash' => 'No Games Found in Trash',
-  'parent' => 'Parent Game',
-)
-) ); }
-
-/*game post type end*/
-
-
-
-/*custom post type end*/
 
 
 
