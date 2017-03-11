@@ -233,3 +233,4 @@ add_action( 'save_post', 'wpbooks_meta_box_save' );
 
 include($everypraise_shortcodes_path.'/inc/post_types.php');
 include($everypraise_shortcodes_path.'/inc/taxonomies.php');
+//include($everypraise_shortcodes_path.'/inc/custom_fields.php');
